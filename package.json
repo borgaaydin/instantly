@@ -1,6 +1,6 @@
 {
-  "name": "paizatter",
-  "version": "0.0.0",
+  "name": "instantly",
+  "version": "0.0.1",
   "main": "server/app.js",
   "dependencies": {
     "body-parser": "~1.15.1",

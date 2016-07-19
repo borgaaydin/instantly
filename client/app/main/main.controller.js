@@ -16,6 +16,7 @@ angular.module('paizatterApp')
       query = _.merge(query, {$text: {$search: keyword}});
     }
     $http.get('/api/things', {params: {query: query}}).success(function(awesomeThings) {
+        console.log(awesomeThings);
       $scope.awesomeThings = awesomeThings;
       socket.syncUpdates('thing', $scope.awesomeThings);
       if($scope.awesomeThings.length<20){

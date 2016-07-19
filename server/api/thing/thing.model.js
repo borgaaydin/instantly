@@ -6,6 +6,7 @@ var TinySegmenter = require('tiny-segmenter');
 
 var ThingSchema = new Schema({
   name: String,
+  imgUrl: String,
   tokenizedName: String,
   user: {
     type: Schema.ObjectId,
@@ -20,7 +21,7 @@ var ThingSchema = new Schema({
     default: Date.now
   },
 });
-ThingSchema.index({tokenizedName: 'text', name: 'text'});
+ThingSchema.index({tokenizedName: 'text', name: 'text', imgUrl: 'text'});
 ThingSchema.pre('save', function(next){
   var tinySegmenter = new TinySegmenter();
   this.tokenizedName = tinySegmenter.segment(this.name).join(' ');
